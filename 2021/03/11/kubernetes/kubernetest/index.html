@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="docker部署禅道, MrXianXiong">
+    <meta name="keywords" content="kubeadm 部署k8s, MrXianXiong">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>docker部署禅道 | MrXianXiong</title>
+    <title>kubeadm 部署k8s | MrXianXiong</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -204,12 +204,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">docker部署禅道</h1>
+                    <h1 class="description center-align post-title">kubeadm 部署k8s</h1>
                 </div>
             </div>
         </div>
@@ -325,12 +325,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/docker/">
-                                <span class="chip bg-color">docker</span>
+                            <a href="/tags/kubernetes/">
+                                <span class="chip bg-color">kubernetes</span>
                             </a>
                         
-                            <a href="/tags/%E7%A6%85%E9%81%93/">
-                                <span class="chip bg-color">禅道</span>
+                            <a href="/tags/kubeadm/">
+                                <span class="chip bg-color">kubeadm</span>
                             </a>
                         
                     </div>
@@ -341,8 +341,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/docker/" class="post-category">
-                                docker
+                            <a href="/categories/kubernetes/" class="post-category">
+                                kubernetes
                             </a>
                         
                     </div>
@@ -354,7 +354,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-05
+                    2021-03-11
                 </div>
                 
 
@@ -380,39 +380,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2><span id="部署禅道">部署禅道</span></h2><h2><span id="一docker形式部署">一：docker形式部署：</span></h2><p><a target="_blank" rel="noopener" href="https://www.zentao.net/book/zentaopmshelp/303.html">https://www.zentao.net/book/zentaopmshelp/303.html</a></p>
-<h3><span id="下载docker版源码禅道开源版">下载docker版源码（禅道开源版）</span></h3><p> <a target="_blank" rel="noopener" href="http://dl.cnezsoft.com/zentao/docker/docker_zentao.zip">http://dl.cnezsoft.com/zentao/docker/docker_zentao.zip</a>    </p>
-<p> 下载完成解压文件，并上传服务器任意位置</p>
-<p><img src="/assets/zentao/%E4%B8%8A%E4%BC%A0%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6.jpg"></p>
-<span id="more"></span>
-
-<p>构建镜像：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker build -t zentao .&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>查看构建的镜像</p>
-<p><img src="/assets/zentao/%E6%9F%A5%E7%9C%8Bdocker%E9%95%9C%E5%83%8F.jpg" alt="1581301610665"></p>
-<p>运行镜像：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --name [容器名称] -p [主机端口]:80 -v [主机代码目录]:&#x2F;app&#x2F;zentaopms -v [主机数据目录]:&#x2F;var&#x2F;lib&#x2F;mysql -e MYSQL_ROOT_PASSWORD&#x3D;[数据库密码] -d [镜像名]:latest</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如</span><br><span class="line">创建 &#x2F;data&#x2F;www &#x2F;data&#x2F;data 目录。</span><br><span class="line">执行命令：</span><br><span class="line">docker run --name zentao -p 1080:80 -v &#x2F;data&#x2F;www:&#x2F;app&#x2F;zentaopms -v &#x2F;data&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d zentao:latest</span><br></pre></td></tr></table></figure>
-
-<p>查看运行情况：</p>
-<p><img src="/assets/zentao/%E6%9F%A5%E7%9C%8Bdocker%E8%BF%90%E8%A1%8C%E9%95%9C%E5%83%8F.jpg" alt="1581301710938"></p>
-<h1><span id="linux部署禅道">linux部署禅道</span></h1><h3><span id="1-官网下载源码">1. 官网下载源码</span></h3><p><img src="/assets/zentao/%E6%BA%90%E4%BB%A3%E7%A0%81.jpg" alt="1581301860658"></p>
-<h3><span id="2-上传到服务器任意位置">2. 上传到服务器任意位置</span></h3><h3><span id="3-将安装包直接解压到opt目录下">3. 将安装包直接解压到/opt目录下</span></h3><p><strong>特别说明：</strong> 不要 解压到别的目录再拷贝到/opt/，因为这样会导致文件的所有者和读写权限改变， 也不要解压后把整个目录777权限 。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo tar -zxvf  ZenTaoPMS.7.3.stable.zbox_32.tar.gz -C &#x2F;opt</span><br></pre></td></tr></table></figure>
-
-<h3><span id="4-apache和mysql常用命令">4. Apache和Mysql常用命令</span></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">执行&#x2F;opt&#x2F;zbox&#x2F;zbox start 命令开启Apache和Mysql。</span><br><span class="line"></span><br><span class="line">执行&#x2F;opt&#x2F;zbox&#x2F;zbox stop 命令停止Apache和Mysql。</span><br><span class="line"></span><br><span class="line">执行&#x2F;opt&#x2F;zbox&#x2F;zbox restart 命令重启Apache和Mysql。</span><br></pre></td></tr></table></figure>
-
-<p>注：如果需要开机自动启动，可以把 /opt/zbox/zbox restart 加到操作系统的自启目录</p>
-<h3><span id="5-设置apach的端口和mysql的端口">5. 设置apach的端口和mysql的端口</span></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;zbox</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;zbox stop                     #关闭禅道</span><br><span class="line"></span><br><span class="line">.&#x2F;zbox -ap 8082             #更改禅道内置 apache 端口</span><br><span class="line"></span><br><span class="line">.&#x2F;zbox -mp 3307            #更改禅道内置 mysql 端口</span><br><span class="line"></span><br><span class="line">.&#x2F;zbox start                    #启动禅道</span><br></pre></td></tr></table></figure>
-
-
-
-<h3><span id="查看启动">查看启动：</span></h3><p><img src="/assets/zentao/%E5%90%AF%E5%8A%A8%E7%A6%85%E9%81%93.jpg" alt="1581302248726"></p>
-<h3><span id="6-禅道默认登录密码为">6. 禅道默认登录密码为</span></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">admin</span><br><span class="line">123456</span><br></pre></td></tr></table></figure>
+                <h1><span id="h1">h1</span></h1>
                 
             </div>
             <hr/>
@@ -438,7 +406,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://mrxianxiong.github.io/2021/03/05/docker%E9%83%A8%E7%BD%B2%E7%A6%85%E9%81%93/index/">https://mrxianxiong.github.io/2021/03/05/docker%E9%83%A8%E7%BD%B2%E7%A6%85%E9%81%93/index/</a>
+                    <a href="https://mrxianxiong.github.io/2021/03/11/kubernetes/kubernetest/">https://mrxianxiong.github.io/2021/03/11/kubernetes/kubernetest/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -476,12 +444,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/docker/">
-                                    <span class="chip bg-color">docker</span>
+                                <a href="/tags/kubernetes/">
+                                    <span class="chip bg-color">kubernetes</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A6%85%E9%81%93/">
-                                    <span class="chip bg-color">禅道</span>
+                                <a href="/tags/kubeadm/">
+                                    <span class="chip bg-color">kubeadm</span>
                                 </a>
                             
                         </div>
@@ -527,17 +495,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/05/docker/docker-compose/">
+                <a href="/2021/03/11/kubernetes/kubernetest/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="docker-compose">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="kubeadm 部署k8s">
                         
-                        <span class="card-title">docker-compose</span>
+                        <span class="card-title">kubeadm 部署k8s</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -547,9 +516,63 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/kubernetes/" class="post-category">
+                                    kubernetes
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/kubernetes/">
+                        <span class="chip bg-color">kubernetes</span>
+                    </a>
+                    
+                    <a href="/tags/kubeadm/">
+                        <span class="chip bg-color">kubeadm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/05/docker/index/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="centos7 安装docekr">
+                        
+                        <span class="card-title">centos7 安装docekr</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -567,62 +590,6 @@
                     
                     <a href="/tags/docker/">
                         <span class="chip bg-color">docker</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/04/openResource/OpenResource/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="OenResource">
-                        
-                        <span class="card-title">OenResource</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            资料记载：
-
-
-一：开源项目框架：（sca+spring security+skywalking+elk+docker）
-二：springboot 三种全局时间格式配置：
-三、kubernetes:
-四：idea远程调试：
-五：centos
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/note/" class="post-category">
-                                    note
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/note/">
-                        <span class="chip bg-color">note</span>
                     </a>
                     
                 </div>
