@@ -95,13 +95,6 @@
   </url>
   
   <url>
-    <loc>https://mrxianxiong.github.io/tags/%E7%A6%85%E9%81%93/</loc>
-    <lastmod>2021-03-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mrxianxiong.github.io/tags/kubernetes/</loc>
     <lastmod>2021-03-25</lastmod>
     <changefreq>daily</changefreq>
@@ -116,7 +109,7 @@
   </url>
   
   <url>
-    <loc>https://mrxianxiong.github.io/tags/note/</loc>
+    <loc>https://mrxianxiong.github.io/tags/%E7%A6%85%E9%81%93/</loc>
     <lastmod>2021-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -124,6 +117,13 @@
   
   <url>
     <loc>https://mrxianxiong.github.io/tags/%E8%AF%81%E4%B9%A6/</loc>
+    <lastmod>2021-03-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mrxianxiong.github.io/tags/note/</loc>
     <lastmod>2021-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -146,14 +146,14 @@
   </url>
   
   <url>
-    <loc>https://mrxianxiong.github.io/categories/note/</loc>
+    <loc>https://mrxianxiong.github.io/categories/ssl/</loc>
     <lastmod>2021-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://mrxianxiong.github.io/categories/ssl/</loc>
+    <loc>https://mrxianxiong.github.io/categories/note/</loc>
     <lastmod>2021-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
