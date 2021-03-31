@@ -403,8 +403,9 @@
 
 <h4><span id="jsonformat-注解的优先级比较高会以-jsonformat-注解的时间格式为主">*** <code>@JsonFormat</code> 注解的优先级比较高，会以 <code>@JsonFormat</code> 注解的时间格式为主。</span></h4><hr>
 <h3><span id="三-kubernetes">三、kubernetes:</span></h3><h4><span id="基础知识文档httpskubernetesiozhdocsconceptsarchitecturenodes">基础知识文档：</span></h4><h4><span id="老男孩部署kubernetes教程httpswwwyuquecomgrepkubernetescdiy10">老男孩部署kubernetes教程：</span></h4><hr>
-<h3><span id="四idea远程调试">四：idea远程调试：</span></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -Xdebug -Xrunjdwp:transport&#x3D;dt_socket,address&#x3D;10102,server&#x3D;y,suspend&#x3D;y -jar epanda-gateway-service-1.0.6-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
-
+<h3><span id="四idea远程调试">四：idea远程调试：</span></h3><h4><span id="41">4.1</span></h4><p>1、满足服务器防火墙能够访问线上端口（10901）<br>2、线上执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -Xdebug -agentlib:jdwp&#x3D;transport&#x3D;dt_socket,server&#x3D;y,suspend&#x3D;n,address&#x3D;10901 -Dspring.profiles.active&#x3D;dev -jar epanda-user-xx-service-1.1.0-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+<p>3、本地代码与线程服务器保持一致，本地启动<br>4、执行远程调试</p>
 <hr>
 <h3><span id="五centos7">五：centos7</span></h3><h4><span id="1-解决服务器cpu飙升问题排查步骤">1、解决服务器CPU飙升问题排查步骤：</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;K1soxilMPh1ce___oMCS9Q</span><br></pre></td></tr></table></figure>
 
@@ -561,13 +562,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/05/docker/docker-compose/">
+                <a href="/2021/03/05/%E8%87%B3%E7%90%86%E5%90%8D%E8%A8%80/%E8%87%B3%E7%90%86%E5%90%8D%E8%A8%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="docker-compose">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="至理名言">
                         
-                        <span class="card-title">docker-compose</span>
+                        <span class="card-title">至理名言</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -582,23 +583,11 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/docker/" class="post-category">
-                                    docker
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xian xiong
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/docker/">
-                        <span class="chip bg-color">docker</span>
-                    </a>
-                    
                 </div>
                 
             </div>
