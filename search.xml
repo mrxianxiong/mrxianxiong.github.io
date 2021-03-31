@@ -31,31 +31,6 @@
     
     
     <entry>
-      <title>docker-compose</title>
-      <link href="2021/03/05/docker/docker-compose/"/>
-      <url>2021/03/05/docker/docker-compose/</url>
-      
-        <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#centos7-%E5%AE%89%E8%A3%85docekr">centos7 安装docekr</a></li></ul><!-- tocstop --><h3><span id="centos7-安装docekr">centos7 安装docekr</span></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;centos&#x2F;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>centos7 安装docekr</title>
       <link href="2021/03/05/docker/index/"/>
       <url>2021/03/05/docker/index/</url>
@@ -108,23 +83,36 @@
     
     
     <entry>
-      <title>CFSSL证书生成</title>
-      <link href="2021/03/04/ssl/cfssl/"/>
-      <url>2021/03/04/ssl/cfssl/</url>
+      <title>至理名言</title>
+      <link href="2021/03/05/%E8%87%B3%E7%90%86%E5%90%8D%E8%A8%80/%E8%87%B3%E7%90%86%E5%90%8D%E8%A8%80/"/>
+      <url>2021/03/05/%E8%87%B3%E7%90%86%E5%90%8D%E8%A8%80/%E8%87%B3%E7%90%86%E5%90%8D%E8%A8%80/</url>
       
-        <content type="html"><![CDATA[<h2><span id="ssl证书生成">SSL证书生成：</span></h2><!-- toc --><ul><li><a href="#%E4%B8%80-cfssl%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6">一、CFSSL方式生成证书：</a></li><li><a href="#%E4%BA%8C-openssl%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6">二、OpenSSL方式生成证书：</a></li></ul><!-- tocstop --><h3><span id="一-cfssl方式生成证书">一、CFSSL方式生成证书：</span></h3><p><a href="https://github.com/openssl/openssl#download">github地址：</a></p><h4><span id="11-linux安装cfssl前4步必须执行">1.1、linux安装cfssl：（前4步必须执行）</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、curl -s -L -o &#x2F;bin&#x2F;cfssl https:&#x2F;&#x2F;pkg.cfssl.org&#x2F;R1.2&#x2F;cfssl_linux-amd64</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2、curl -s -L -o &#x2F;bin&#x2F;cfssl-json https:&#x2F;&#x2F;pkg.cfssl.org&#x2F;R1.2&#x2F;cfssljson_linux-amd64</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3、curl -s -L -o &#x2F;bin&#x2F;cfssl-certinfo https:&#x2F;&#x2F;pkg.cfssl.org&#x2F;R1.2&#x2F;cfssl-certinfo_linux-amd64</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">赋予执行权限：</span><br><span class="line">4、chmod +x &#x2F;bin&#x2F;cfssl*</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查看位置：</span><br><span class="line">which cfssl</span><br><span class="line">which cfssljson</span><br><span class="line">which cfssl-certinfo</span><br></pre></td></tr></table></figure><span id="more"></span><h4><span id="12-创建生成ca证书签名请求ca-csrjson">1.2、创建生成CA证书签名请求（ca-csr.json）</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、cd &#x2F;opt&#x2F;certs</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2、vim ca-csr.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">&quot;CN&quot;: &quot;kubernetes&quot;,</span><br><span class="line">&quot;hosts&quot;:[],</span><br><span class="line">&quot;key&quot;: &#123;</span><br><span class="line">    &quot;algo&quot;: &quot;rsa&quot;,</span><br><span class="line">    &quot;size&quot;: 2048</span><br><span class="line">&#125;,</span><br><span class="line">&quot;names&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;C&quot;: &quot;CN&quot;,</span><br><span class="line">        &quot;L&quot;: &quot;BeiJing&quot;,</span><br><span class="line">        &quot;O&quot;: &quot;Ctyun&quot;,</span><br><span class="line">        &quot;ST&quot;: &quot;BeiJing&quot;,            </span><br><span class="line">        &quot;OU&quot;: &quot;ops&quot;</span><br><span class="line">    &#125;    </span><br><span class="line">    ],</span><br><span class="line">    &quot;ca&quot;:&#123;</span><br><span class="line">    &quot;expiry&quot;:&quot;175200h&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CN：Common Name，浏览器使用该字段验证网站是否合法，一般写的是域名，非常重要。（签发机构）</span><br><span class="line">C：Country，国家</span><br><span class="line">ST：State，州，省</span><br><span class="line">L：Locality，地区，城市</span><br><span class="line">O：Organization Name，组织名称，公司名称</span><br><span class="line">OU：Organization Unit Name：组织单位名称，公司部门</span><br><span class="line"></span><br><span class="line">expiry：过期时间</span><br></pre></td></tr></table></figure><h4><span id="13-生成根证书">1.3、生成根证书</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、cd &#x2F;opt&#x2F;certs</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2、cfssl gencertscfssl gencert -initca ca-csr.json | cfssl-json -bare ca</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/qq_1782800572/images-bed/raw/master/CFSSL/20210304104031.png" alt="生成证书"></p><h3><span id="二-openssl方式生成证书">二、OpenSSL方式生成证书：</span></h3>]]></content>
+        <content type="html"><![CDATA[<h4><span id="在没钱的时候把勤舍得出去钱就来了-一一这叫天道酬勤">在没钱的时候，把勤舍得出去，钱就来了。一一这叫天道酬勤。</span></h4><h4><span id="在有钱的时候把钱舍得出去人就来了-一一这叫财散人聚">在有钱的时候，把钱舍得出去，人就来了。一一这叫财散人聚。</span></h4><h4><span id="当有人的时候把爱舍弃出去事业就来了-一一这叫博爱领众">当有人的时候，把爱舍弃出去，事业就来了。一一这叫博爱领众。</span></h4><h4><span id="当事业成功后把智慧舍得出去喜悦就来了-一一这叫德行天下">当事业成功后，把智慧舍得出去，喜悦就来了。一一这叫德行天下。</span></h4><h4><span id="没有舍-就没有得切记世界是圆的你怎么对别人别人就怎么对你">没有舍、就没有得！，切记……世界是圆的，你怎么对别人，别人就怎么对你…</span></h4>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>docker-compose</title>
+      <link href="2021/03/05/docker/docker-compose/"/>
+      <url>2021/03/05/docker/docker-compose/</url>
+      
+        <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#centos7-%E5%AE%89%E8%A3%85docekr">centos7 安装docekr</a></li></ul><!-- tocstop --><h3><span id="centos7-安装docekr">centos7 安装docekr</span></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;centos&#x2F;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> ssl </category>
+          <category> docker </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 证书 </tag>
+            <tag> docker </tag>
             
         </tags>
       
@@ -150,6 +138,31 @@
         <tags>
             
             <tag> note </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CFSSL证书生成</title>
+      <link href="2021/03/04/ssl/cfssl/"/>
+      <url>2021/03/04/ssl/cfssl/</url>
+      
+        <content type="html"><![CDATA[<h2><span id="ssl证书生成">SSL证书生成：</span></h2><!-- toc --><ul><li><a href="#%E4%B8%80-cfssl%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6">一、CFSSL方式生成证书：</a></li><li><a href="#%E4%BA%8C-openssl%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6">二、OpenSSL方式生成证书：</a></li></ul><!-- tocstop --><h3><span id="一-cfssl方式生成证书">一、CFSSL方式生成证书：</span></h3><p><a href="https://github.com/openssl/openssl#download">github地址：</a></p><h4><span id="11-linux安装cfssl前4步必须执行">1.1、linux安装cfssl：（前4步必须执行）</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、curl -s -L -o &#x2F;bin&#x2F;cfssl https:&#x2F;&#x2F;pkg.cfssl.org&#x2F;R1.2&#x2F;cfssl_linux-amd64</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2、curl -s -L -o &#x2F;bin&#x2F;cfssl-json https:&#x2F;&#x2F;pkg.cfssl.org&#x2F;R1.2&#x2F;cfssljson_linux-amd64</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3、curl -s -L -o &#x2F;bin&#x2F;cfssl-certinfo https:&#x2F;&#x2F;pkg.cfssl.org&#x2F;R1.2&#x2F;cfssl-certinfo_linux-amd64</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">赋予执行权限：</span><br><span class="line">4、chmod +x &#x2F;bin&#x2F;cfssl*</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查看位置：</span><br><span class="line">which cfssl</span><br><span class="line">which cfssljson</span><br><span class="line">which cfssl-certinfo</span><br></pre></td></tr></table></figure><span id="more"></span><h4><span id="12-创建生成ca证书签名请求ca-csrjson">1.2、创建生成CA证书签名请求（ca-csr.json）</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、cd &#x2F;opt&#x2F;certs</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2、vim ca-csr.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">&quot;CN&quot;: &quot;kubernetes&quot;,</span><br><span class="line">&quot;hosts&quot;:[],</span><br><span class="line">&quot;key&quot;: &#123;</span><br><span class="line">    &quot;algo&quot;: &quot;rsa&quot;,</span><br><span class="line">    &quot;size&quot;: 2048</span><br><span class="line">&#125;,</span><br><span class="line">&quot;names&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;C&quot;: &quot;CN&quot;,</span><br><span class="line">        &quot;L&quot;: &quot;BeiJing&quot;,</span><br><span class="line">        &quot;O&quot;: &quot;Ctyun&quot;,</span><br><span class="line">        &quot;ST&quot;: &quot;BeiJing&quot;,            </span><br><span class="line">        &quot;OU&quot;: &quot;ops&quot;</span><br><span class="line">    &#125;    </span><br><span class="line">    ],</span><br><span class="line">    &quot;ca&quot;:&#123;</span><br><span class="line">    &quot;expiry&quot;:&quot;175200h&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CN：Common Name，浏览器使用该字段验证网站是否合法，一般写的是域名，非常重要。（签发机构）</span><br><span class="line">C：Country，国家</span><br><span class="line">ST：State，州，省</span><br><span class="line">L：Locality，地区，城市</span><br><span class="line">O：Organization Name，组织名称，公司名称</span><br><span class="line">OU：Organization Unit Name：组织单位名称，公司部门</span><br><span class="line"></span><br><span class="line">expiry：过期时间</span><br></pre></td></tr></table></figure><h4><span id="13-生成根证书">1.3、生成根证书</span></h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、cd &#x2F;opt&#x2F;certs</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2、cfssl gencertscfssl gencert -initca ca-csr.json | cfssl-json -bare ca</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/qq_1782800572/images-bed/raw/master/CFSSL/20210304104031.png" alt="生成证书"></p><h3><span id="二-openssl方式生成证书">二、OpenSSL方式生成证书：</span></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> ssl </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 证书 </tag>
             
         </tags>
       
