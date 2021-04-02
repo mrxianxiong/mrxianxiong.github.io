@@ -109,6 +109,13 @@
   </url>
   
   <url>
+    <loc>https://mrxianxiong.github.io/tags/note/</loc>
+    <lastmod>2021-04-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mrxianxiong.github.io/tags/kubernetes/</loc>
     <lastmod>2021-04-02</lastmod>
     <changefreq>daily</changefreq>
@@ -117,13 +124,6 @@
   
   <url>
     <loc>https://mrxianxiong.github.io/tags/kubeadm/</loc>
-    <lastmod>2021-04-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mrxianxiong.github.io/tags/note/</loc>
     <lastmod>2021-04-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -146,14 +146,14 @@
   </url>
   
   <url>
-    <loc>https://mrxianxiong.github.io/categories/kubernetes/</loc>
+    <loc>https://mrxianxiong.github.io/categories/note/</loc>
     <lastmod>2021-04-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://mrxianxiong.github.io/categories/note/</loc>
+    <loc>https://mrxianxiong.github.io/categories/kubernetes/</loc>
     <lastmod>2021-04-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
